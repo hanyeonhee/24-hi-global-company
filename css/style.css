@@ -18,9 +18,9 @@ a {
 }
 
 body {
-    background-color: #ffffff; /* 배경색 준수  */
-    color: #333333; /* 기본 텍스트 색 준수  */
-    font-family: "맑은 고딕", sans-serif;
+    background-color: #ffffff; /* 배경색 준수 */
+    color: #333333; /* 기본 텍스트 색 준수 */
+    font-family: "Malgun Gothic", sans-serif; /* 맑은 고딕 서체 사용 */
     font-size: 15px;
 }
 
@@ -31,18 +31,20 @@ body {
     clear: both;
 }
 
-/* 2. 레이아웃 (Layout) - 1200px 중앙 정렬 [cite: 43] */
+/* 2. 레이아웃 (Layout) - 1200px 중앙 정렬 */
 #wrap {
     width: 1200px;
     margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 약한 그림자 효과 추가 */
 }
 
-/* 3. 헤더 (Header) [cite: 90, 100] */
+/* 3. 헤더 (Header) */
 #header {
     height: 100px;
     position: relative;
-    z-index: 1000; /* 슬라이드보다 위로 오게 함 [cite: 2753] */
+    z-index: 1000; /* 슬라이드보다 위로 오게 함 */
     background-color: #ffffff;
+    padding: 0 20px; /* 좌우 여백 추가 */
 }
 
 .logo {
@@ -57,7 +59,7 @@ body {
     height: 100%;
 }
 
-/* 네비게이션 (Navigation) [cite: 2750, 2751] */
+/* 네비게이션 (Navigation) */
 .nav {
     float: right;
     margin-top: 30px;
@@ -76,19 +78,20 @@ body {
     transition: all 0.3s;
 }
 
-/* 메인 메뉴 하이라이트 (주조색 적용) [cite: 2750] */
+/* 메인 메뉴 하이라이트 (주조색 적용) */
 .main-menu > li:hover > a {
     background-color: #e31a40; 
     color: #ffffff;
 }
 
-/* 서브 메뉴 [cite: 2753] */
+/* 서브 메뉴 */
 .sub-menu {
     display: none; /* 스크립트로 제어 */
     position: absolute;
     width: 150px;
-    background-color: #f0f0f0;
+    background-color: #f9f9f9; /* 배경색 약간 밝게 수정 */
     box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    border-radius: 0 0 5px 5px; /* 아래쪽 모서리 둥글게 */
 }
 
 .sub-menu li a {
@@ -97,11 +100,11 @@ body {
 }
 
 .sub-menu li a:hover {
-    background-color: #dddddd;
+    background-color: #eeeeee; /* 호버 시 배경색 변경 */
     color: #e31a40; /* 보조적인 하이라이트 */
 }
 
-/* 4. 슬라이드 (Slide) - 위아래 이동형 [cite: 108, 110, 2760] */
+/* 4. 슬라이드 (Slide) - 위아래 이동형 */
 #slide {
     width: 100%;
     height: 300px;
@@ -125,9 +128,9 @@ body {
 }
 
 /* 임시 배경색 (이미지 없을 때 확인용) */
-.item1 { background-color: #e0e0e0; }
-.item2 { background-color: #d0d0d0; }
-.item3 { background-color: #c0c0c0; }
+.item1 { background-color: #f0f0f0; } /* 배경색 약간 밝게 수정 */
+.item2 { background-color: #e0e0e0; }
+.item3 { background-color: #d0d0d0; }
 
 .slide-text {
     position: absolute;
@@ -142,13 +145,13 @@ body {
     font-weight: bold;
 }
 
-/* 5. 콘텐츠 (Contents) [cite: 111, 2765, 2767] */
+/* 5. 콘텐츠 (Contents) */
 #contents {
     height: 200px;
     margin: 20px 0;
 }
 
-/* 탭 메뉴 (Tab) [cite: 122, 123] */
+/* 탭 메뉴 (Tab) */
 .tab-container {
     float: left;
     width: 400px;
@@ -165,6 +168,7 @@ body {
     border-bottom: none;
     background-color: #f4f4f4;
     cursor: pointer;
+    border-radius: 5px 5px 0 0; /* 위쪽 모서리 둥글게 */
 }
 
 .tab-menu li.active {
@@ -178,6 +182,7 @@ body {
     height: 160px;
     padding: 15px;
     border: 1px solid #ddd;
+    border-radius: 0 5px 5px 5px; /* 모서리 둥글게 수정 */
 }
 
 .tab-content.active {
@@ -208,9 +213,10 @@ body {
     width: 100%;
     height: 100px;
     object-fit: cover;
+    border-radius: 5px; /* 이미지 모서리 둥글게 */
 }
 
-/* 배너 및 바로가기 [cite: 2763, 2764] */
+/* 배너 및 바로가기 */
 .banner, .direct {
     float: left;
     width: 400px;
@@ -224,10 +230,10 @@ body {
     border-radius: 10px;
 }
 
-/* 6. 푸터 (Footer) [cite: 132, 133, 2769] */
+/* 6. 푸터 (Footer) */
 #footer {
     height: 100px;
-    background-color: #444444;
+    background-color: #333333; /* 배경색 더 어둡게 수정 */
     color: #ffffff;
     padding: 20px;
 }
@@ -235,7 +241,7 @@ body {
 .f-logo {
     float: left;
     width: 200px;
-    filter: grayscale(100%); /* 무채색 변경 [cite: 2769] */
+    filter: grayscale(100%); /* 무채색 변경 */
     opacity: 0.7;
 }
 
@@ -256,9 +262,10 @@ body {
 .f-site select {
     width: 100%;
     padding: 5px;
+    border-radius: 5px; /* 셀렉트 박스 모서리 둥글게 */
 }
 
-/* 7. 모달 팝업 (Modal Popup) [cite: 2766] */
+/* 7. 모달 팝업 (Modal Popup) */
 #modal {
     display: none; /* 기본 숨김 */
     position: fixed;
@@ -279,6 +286,7 @@ body {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* 그림자 효과 추가 */
 }
 
 .modal-box h3 {
@@ -294,9 +302,10 @@ body {
 
 .pop-close {
     float: right;
-    background-color: #333;
+    background-color: #e31a40; /* 닫기 버튼 주조색 적용 */
     color: #fff;
     padding: 8px 25px;
     border: none;
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
     cursor: pointer;
 }
