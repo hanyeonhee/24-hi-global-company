@@ -1,39 +1,37 @@
 $(function() {
-    // 1. 메뉴 효과 [cite: 2750, 2751]
-    $('.main-menu > li').mouseover(function() {
-        $(this).find('.sub-menu').stop().slideDown();
-    }).mouseout(function() {
-        $(this).find('.sub-menu').stop().slideUp();
+    // 1. 네비게이션: 메인 메뉴 호버 시 서브 메뉴 슬라이드
+    $('.main-menu > li').mouseenter(function() {
+        $(this).find('.sub-menu').stop().slideDown(300);
+    }).mouseleave(function() {
+        $(this).find('.sub-menu').stop().slideUp(300);
     });
 
-    // 2. 슬라이드 애니메이션 (위-아래) [cite: 2760, 2761, 2762]
-    var slideIdx = 0;
+    // 2. 슬라이드: 3초마다 위쪽으로 이동하는 무한 루프
     setInterval(function() {
-        slideIdx++;
-        if(slideIdx > 2) slideIdx = 0;
-        
-        var topPos = slideIdx * -300;
-        $('.slide-list').animate({ top: topPos + 'px' }, 500);
+        $('.slide-list').animate({ top: '-350px' }, 500, function() {
+            // 첫 번째 아이템을 리스트 끝으로 보내고 top 위치 초기화
+            $(this).append($('.slide-item').first());
+            $(this).css('top', '0');
+        });
     }, 3000);
 
-    // 3. 탭 기능 [cite: 2743]
-    $('.tab-menu li a').click(function(e) {
-        e.preventDefault();
-        var idx = $(this).parent().index();
-        
+    // 3. 탭 메뉴: 공지사항/갤러리 전환
+    $('.tab-menu li').click(function() {
         $('.tab-menu li').removeClass('active');
-        $(this).parent().addClass('active');
-        
-        $('.tab-content').hide();
-        $('.tab-content').eq(idx).show();
+        $(this).addClass('active');
+
+        var idx = $(this).index();
+        $('.tab-content').removeClass('active');
+        $('.tab-content').eq(idx).addClass('active');
+        return false; // 클릭 이벤트 버블링 방지
     });
 
-    // 4. 레이어 팝업 열기/닫기 [cite: 2766]
-    $('.pop-open').click(function(e) {
-        e.preventDefault();
+    // 4. 모달 팝업: 첫 번째 공지사항 클릭 시 열기
+    $('.pop-open').click(function() {
         $('#modal').fadeIn();
+        return false;
     });
-    
+
     $('.pop-close').click(function() {
         $('#modal').fadeOut();
     });
