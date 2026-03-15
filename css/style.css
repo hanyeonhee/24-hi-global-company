@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* 초기화 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+li { list-style: none; }
+a { text-decoration: none; color: inherit; }
+body { background-color: #ffffff; color: #333333; font-size: 14px; }
+.clearfix::after { content: ""; display: block; clear: both; }
+
+/* 전체 레이아웃 */
+#wrap { width: 1200px; margin: 0 auto; }
+
+/* 헤더 영역 */
+#header { height: 100px; position: relative; z-index: 100; }
+.logo { float: left; padding-top: 28px; width: 190px; }
+.logo img { width: 190px; height: 44px; }
+
+.nav { float: right; padding-top: 30px; }
+.main-menu > li { float: left; width: 150px; text-align: center; position: relative; }
+.main-menu > li > a { display: block; font-weight: bold; font-size: 16px; padding: 10px 0; }
+.main-menu > li:hover > a { background-color: #e31a40; color: #fff; } /* 주조색 적용  */
+
+.sub-menu { display: none; position: absolute; top: 40px; left: 0; width: 100%; background: #eee; }
+.sub-menu li a { display: block; padding: 10px 0; }
+.sub-menu li a:hover { background: #ccc; }
+
+/* 슬라이드 영역  */
+#slide { height: 300px; overflow: hidden; }
+.slide-container { height: 900px; } /* 300px * 3개 */
+.slide-item { height: 300px; background-size: cover; background-position: center; position: relative; }
+.slide-item span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                   background: rgba(0,0,0,0.5); color: #fff; padding: 10px 20px; }
+.item1 { background-color: #ddd; }
+.item2 { background-color: #ccc; }
+.item3 { background-color: #bbb; }
+
+/* 콘텐츠 영역 */
+#contents { height: 200px; margin: 20px 0; }
+.tab-container { float: left; width: 400px; height: 100%; }
+.tab-menu li { float: left; background: #eee; margin-right: 5px; }
+.tab-menu li a { display: block; padding: 5px 20px; border: 1px solid #ddd; }
+.tab-menu li.active { background: #fff; border-bottom: none; }
+
+.tab-content { display: none; padding: 10px; border: 1px solid #ddd; height: 160px; }
+.tab-content.notice { display: block; }
+.notice ul li { padding: 5px 0; border-bottom: 1px solid #eee; }
+.notice ul li span { float: right; }
+
+.gallery ul li { float: left; width: 30%; margin-right: 3%; }
+.gallery ul li img { width: 100%; height: auto; }
+
+.banner { float: left; width: 400px; height: 100%; text-align: center; }
+.direct { float: left; width: 400px; height: 100%; text-align: center; }
+
+/* 푸터 영역 */
+#footer { height: 100px; background: #f4f4f4; padding: 20px; }
+.f-logo { float: left; width: 200px; filter: grayscale(100%); }
+.f-info { float: left; width: 700px; text-align: center; padding-top: 20px; }
+.f-site { float: right; width: 200px; padding-top: 15px; }
+
+/* 모달 레이어 팝업 */
+#modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+          background: rgba(0,0,0,0.7); z-index: 1000; }
+.modal-box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+             background: #fff; padding: 30px; width: 400px; }
+.modal-box h3 { margin-bottom: 15px; border-bottom: 1px solid #eee; }
+.pop-close { margin-top: 20px; padding: 5px 15px; cursor: pointer; }
